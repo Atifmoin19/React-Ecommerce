@@ -113,7 +113,7 @@ function App() {
         icon: string;
       }[];
     }[]
-  >(navitems);
+  >([]);
   const values = {
     countryList,
     setSelectedCity,
@@ -121,6 +121,9 @@ function App() {
     navigationList,
     list,
   };
+useEffect(() => {
+  setNavigationList(navitems)
+}, [])
 
   return (
     <ChakraProvider resetCSS theme={theme}>

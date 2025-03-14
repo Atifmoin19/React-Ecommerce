@@ -1,4 +1,4 @@
-import { filter, Flex, Icon, Text } from "@chakra-ui/react";
+import { Flex, Icon, Text } from "@chakra-ui/react";
 import { MyContext } from "App";
 import { ElementType, useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +20,7 @@ const NavItems = () => {
               fontWeight={"500"}
               height={"min-content"}
               rounded={"full"}
-              onClick={(e) => {
+              onClick={() => {
                 navigate(item.link);
                 console.log("clicked parent");
               }}

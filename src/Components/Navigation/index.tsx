@@ -1,7 +1,7 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Flex, Icon, MenuIcon, Text } from "@chakra-ui/react";
+import { Flex, Icon, Text } from "@chakra-ui/react";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { theme } from "Styles";
+
 import NavItems from "./NavItems";
 const Navigation = () => {
   return (
