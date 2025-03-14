@@ -1,6 +1,8 @@
 import { Flex, Text } from "@chakra-ui/react";
 
 import Header from "Components/Header";
+import Navigation from "Components/Navigation";
+import { theme } from "Styles";
 
 const HomePage = () => {
   return (
@@ -23,8 +25,15 @@ const HomePage = () => {
           epidemic, orders may be processed with a slight delay
         </Text>
       </Flex>
-      <Flex direction={"column"} w={"100%"} px={"8rem"}>
+      <Flex
+        borderTop={"1px"}
+        borderBottom={"1px"}
+        direction={"column"}
+        w={"100%"}
+        px={theme.constantPadding}
+      >
         <Header />
+        <Navigation />
       </Flex>
     </>
   );

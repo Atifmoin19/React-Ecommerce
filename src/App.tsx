@@ -4,9 +4,23 @@ import AppRouter from "Routes";
 import { theme } from "Styles";
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { navitems } from "Constants";
+import { IconType } from "react-icons";
 
 const MyContext = createContext<{
   list: string[];
+  navigationList: {
+    title: string;
+    link: string;
+    icon: string | IconType;
+    isActive: boolean;
+    subMenu: {
+      category: string;
+      title: string;
+      link: string;
+      icon: string;
+    }[];
+  }[];
   countryList: {
     iso2: string;
     iso3: string;
@@ -86,10 +100,25 @@ function App() {
     "Kiwi",
   ];
 
+  const [navigationList, setNavigationList] = useState<
+    {
+      title: string;
+      icon: string | IconType;
+      isActive: boolean;
+      link: string;
+      subMenu: {
+        category: string;
+        title: string;
+        link: string;
+        icon: string;
+      }[];
+    }[]
+  >(navitems);
   const values = {
     countryList,
     setSelectedCity,
     selectedCity,
+    navigationList,
     list,
   };
 
