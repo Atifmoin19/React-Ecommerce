@@ -5,7 +5,13 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import NavItems from "./NavItems";
 const Navigation = () => {
   return (
-    <Flex w={"100%"} p={"1rem"} justifyContent={"space-between"} gap={"1rem"}>
+    <Flex
+      w={"100%"}
+      p={"1rem"}
+      justifyContent={"space-between"}
+      gap={"1rem"}
+      flexWrap={"wrap"}
+    >
       <Flex
         p={"1rem"}
         cursor={"pointer"}
@@ -41,9 +47,8 @@ const Navigation = () => {
           TOTAL 63 PRODUCTS
         </Text>
       </Flex>
-      <Flex w={"75%"}>
-        <NavItems />
-      </Flex>
+
+      <NavItems />
     </Flex>
   );
 };

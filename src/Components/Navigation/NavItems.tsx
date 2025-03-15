@@ -1,13 +1,20 @@
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { MyContext } from "App";
 import { ElementType, useContext } from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const NavItems = () => {
   const navigate = useNavigate();
   const context = useContext(MyContext);
   return (
-    <Flex w={"100%"} justifyContent={"space-around"} alignItems={"center"}>
+    <Flex
+      w={{ lg: "75%", md: "100%", sm: "100%", xs: "100%" }}
+      justifyContent={"end"}
+      alignItems={"center"}
+      gap={"1rem"}
+      flexWrap={"wrap"}
+    >
       {context &&
         context.navigationList.map((item, idx) => {
           return (
@@ -24,17 +31,28 @@ const NavItems = () => {
                 navigate(item.link);
                 console.log("clicked parent");
               }}
-              border={"1px solid transparent"}
-              background={item.isActive ? "#2bbef9" : ""}
+              background={item.isActive ? "tertiary.500" : ""}
               _hover={{
-                borderColor: !item.isActive ? "#2bbef9" : "",
-                color: !item.isActive ? "#2bbef9" : "",
+                color: "#2bbef9",
+                background: "tertiary.500",
               }}
               className="mainMenu"
-              color={item.isActive ? "#fff" : "gray.500"}
+              gap={2}
+              color={item.isActive ? "#2bbef9" : "gray.500"}
             >
-              {item.icon && <Icon as={item.icon as ElementType} />}
+              {item.icon && (
+                <Flex verticalAlign={"center"}>
+                  <Icon as={item.icon as ElementType} />
+                </Flex>
+              )}
               <Text letterSpacing={"1.3px"}>{item.title}</Text>
+              {item.subMenu.length > 0 ? (
+                <Flex verticalAlign={"center"}>
+                  <Icon as={MdKeyboardArrowDown} />
+                </Flex>
+              ) : (
+                ""
+              )}
               <Flex
                 w={"fit-content"}
                 display={"none"}
@@ -84,9 +102,10 @@ const NavItems = () => {
                       </Text>
                     )}
                     <Flex direction={"column"} gap={".6rem"}>
-                      {item.subMenu.map((itemMap) => {
+                      {item.subMenu.map((itemMap, key) => {
                         return itemMap.category === category ? (
                           <Text
+                            key={key}
                             cursor={"pointer"}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -100,7 +119,7 @@ const NavItems = () => {
                             {itemMap.title}
                           </Text>
                         ) : (
-                          <></>
+                          ""
                         );
                       })}
                     </Flex>

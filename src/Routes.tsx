@@ -5,26 +5,11 @@ import { Route, Routes } from "react-router-dom";
 
 function AppRouter() {
   return (
-    <Suspense
-      fallback={
-        <Box
-          height="100vh"
-          width="100%"
-          display="flex"
-          bg={"#fff"}
-          justifyContent="center"
-          alignItems={"center"}
-        >
-          <Spinner />
-        </Box>
-      }
-    >
-      <Routes>
-        <Route path="">
-          <Route path="" element={<HomePage />} />
-        </Route>
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route path="">
+        <Route path="" element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 }
 

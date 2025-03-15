@@ -42,7 +42,7 @@ const MyContext = createContext<{
     cities: string[];
   } | null;
 } | null>(null); // Added null as an argument to fix the error
-function App() {
+const App = () => {
   const [selectedCity, setSelectedCity] = useState<{
     iso2: string;
     iso3: string;
@@ -121,9 +121,9 @@ function App() {
     navigationList,
     list,
   };
-useEffect(() => {
-  setNavigationList(navitems)
-}, [])
+  useEffect(() => {
+    setNavigationList(navitems);
+  }, []);
 
   return (
     <ChakraProvider resetCSS theme={theme}>
@@ -134,7 +134,7 @@ useEffect(() => {
       </MyContext.Provider>
     </ChakraProvider>
   );
-}
+};
 
 export default App;
 export { MyContext };

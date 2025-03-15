@@ -17,17 +17,17 @@ export const theme = extendTheme({
       "900": "#092752",
     },
     secondary: {
-      "10": "#fef8ee",
-      "50": "#fcebcb",
-      "100": "#f9d38e",
-      "200": "#f8d086",
-      "300": "#f8d086",
-      "400": "#f5ba4e",
-      "500": "#f4ad2d",
-      "600": "#f2a00d",
-      "700": "#f2a00d",
-      "800": "#821C1F",
-      "900": "#d58e0c",
+      "10": "#e0f7fa", // lighter shade
+      "50": "#b2ebf2", // lighter shade
+      "100": "#80deea", // lighter shade
+      "200": "#4dd0e1", // lighter shade
+      "300": "#26c6da", // lighter shade
+      "400": "#00bcd4", // lighter shade
+      "500": "#2bbef9", // base color
+      "600": "#1aa8d9", // darker shade
+      "700": "#0091b5", // darker shade
+      "800": "#007c99", // darker shade
+      "900": "#00657a", // darker shade
     },
     gray2: {
       "10": "#f7f7f7",
@@ -80,7 +80,7 @@ export const theme = extendTheme({
     all: "0 0 10px 1px rgba(0,0,0,0.3)",
     onlyBottom: "rgba(0, 0, 0, 0.15) 0px 1.95px 2.6px;",
     sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-    DEFAULT: "rgba(0, 0, 0, 0.25) 0px 1px 4px",
+    DEFAULT: "rgba(0, 0, 0, 0.15) 0px 1px 4px",
     md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
     lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
     xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
@@ -92,7 +92,7 @@ export const theme = extendTheme({
     good: "rgba(0, 0, 0, 0.3) -5px 10px 20px 10px;",
     none: "none",
   },
-  constantPadding: { lg: "8rem", md: "3rem", sm: "2rem", xs: "1rem" },
+  constantPadding: { lg: "4rem", md: "1rem", sm: "1rem", xs: "1rem" },
   breakpoints: {
     xs: "300px",
     sm: "576px",

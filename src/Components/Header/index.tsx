@@ -6,19 +6,21 @@ import { BsBag } from "react-icons/bs";
 import SearchBar from "Components/SearchBar";
 import { useContext, useState } from "react";
 import { MyContext } from "App";
+import Navigation from "Components/Navigation";
 const Header = () => {
   const context = useContext(MyContext);
   const [productFilter, setProductFilter] = useState("");
 
   const [selectedProduct, setSelectedProduct] = useState("");
-  console.log(selectedProduct, "selectedProductselectedProductselectedProduct");
+
   return (
     <>
       <Flex
-        justifyContent={"start"}
+        justifyContent={"space-between"}
         gap={"2rem"}
         p={"2rem"}
         alignItems={"center"}
+        flexWrap={"wrap"}
       >
         <Image src={Logo} w={"120x"} height={"50px"} objectFit={"contain"} />
         <CountryDropDown />
@@ -77,6 +79,7 @@ const Header = () => {
           <Icon as={BsBag} />
         </Flex>
       </Flex>
+      <Navigation />
     </>
   );
 };

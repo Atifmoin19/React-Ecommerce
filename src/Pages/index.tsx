@@ -1,41 +1,59 @@
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Grid, GridItem } from "@chakra-ui/react";
+import Banner from "Components/Banner";
+import { BannerSectionsVerticle } from "Components/Banner/BannerCardVerticle";
+import CategorySection from "Components/CategorySection/Index";
+import { BannerDataVerticle, sliderSettingsMain } from "Constants";
 
-import Header from "Components/Header";
-import Navigation from "Components/Navigation";
-import { theme } from "Styles";
+import HomePageLayout from "Layouts";
 
 const HomePage = () => {
   return (
-    <>
-      {" "}
-      <Flex
-        w={"100%"}
-        p={"1rem"}
-        bg={"primary.500"}
-        color={"#fff"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        fontSize={"sm"}
-      >
-        <Text>
-          Due to the{" "}
-          <Text as="span" fontWeight={"bold"}>
-            COVID 19
-          </Text>{" "}
-          epidemic, orders may be processed with a slight delay
-        </Text>
+    <HomePageLayout>
+      <Flex my={"2rem"} direction={"column"} minH={"50vh"}>
+        <Banner />
       </Flex>
+
       <Flex
-        borderTop={"1px"}
-        borderBottom={"1px"}
-        direction={"column"}
-        w={"100%"}
-        px={theme.constantPadding}
+        flexWrap={"wrap-reverse"}
+        justifyContent={"space-between"}
+        gap={"1rem"}
       >
-        <Header />
-        <Navigation />
+        <Flex
+          direction={"column"}
+          gap={"2rem"}
+          w={{ lg: "23%", md: "23%", sm: "100%", xs: "100%" }}
+          flex={{
+            lg: "0 0 23%",
+            md: "0 0 25%",
+            sm: "0 0 100%",
+            xs: "0 0 100%",
+          }}
+        >
+          {BannerDataVerticle.map((item, idx) => {
+            return <BannerSectionsVerticle bannerData={item} key={idx} />;
+          })}
+        </Flex>
+        <Flex
+          p={"0 1rem"}
+          w={{ lg: "75%", md: "72%", sm: "100%", xs: "100%" }}
+          flex={{
+            lg: "0 0 75%",
+            md: "0 0 72%",
+            sm: "0 0 100%",
+            xs: "0 0 100%",
+          }}
+        >
+          <CategorySection
+            onViewAll={() => {
+              console.log("s");
+            }}
+            category="Best Seller"
+            description="shadhj"
+            withSwipper
+          />
+        </Flex>
       </Flex>
-    </>
+    </HomePageLayout>
   );
 };
 

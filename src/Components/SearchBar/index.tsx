@@ -63,7 +63,7 @@ const SearchBar = (props: ISearchBar) => {
     <Flex
       minW={"40%"}
       position={"relative"}
-      zIndex={1}
+      zIndex={99}
       h={variant === "float" ? "4rem" : "auto"}
       direction={"column"}
     >
@@ -71,7 +71,6 @@ const SearchBar = (props: ISearchBar) => {
         bg={"gray.200"}
         rounded={"md"}
         p={".6rem 1rem"}
-        zIndex={2}
         minH={autoHeight ? "auto" : "4rem"}
         flexDirection={iconSide === "left" ? "row-reverse" : "row"}
         w={"100%"}
