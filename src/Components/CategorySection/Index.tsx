@@ -19,14 +19,14 @@ const CategorySection = (props: ICategorySection) => {
   const swiperRef = useRef(null);
 
   const handleNext = () => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slideNext();
+    if (swiperRef.current && (swiperRef.current as any).swiper) {
+      (swiperRef.current as any).swiper.slideNext();
     }
   };
 
   const handlePrev = () => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slidePrev();
+    if (swiperRef.current && (swiperRef.current as any).swiper) {
+      (swiperRef.current as any).swiper.slidePrev();
     }
   };
 

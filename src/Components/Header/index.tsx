@@ -12,7 +12,7 @@ const Header = () => {
   const [productFilter, setProductFilter] = useState("");
 
   const [selectedProduct, setSelectedProduct] = useState("");
-
+  console.log(selectedProduct);
   return (
     <>
       <Flex

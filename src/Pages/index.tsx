@@ -1,8 +1,8 @@
-import { Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import Banner from "Components/Banner";
 import { BannerSectionsVerticle } from "Components/Banner/BannerCardVerticle";
 import CategorySection from "Components/CategorySection/Index";
-import { BannerDataVerticle, sliderSettingsMain } from "Constants";
+import { BannerDataVerticle } from "Constants";
 
 import HomePageLayout from "Layouts";
 

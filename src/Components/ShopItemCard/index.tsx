@@ -1,5 +1,5 @@
 import { Button, Flex, Image, Text } from "@chakra-ui/react";
-import React from "react";
+
 export interface IShopItemCards {
   product: {
     product_images: string[];
