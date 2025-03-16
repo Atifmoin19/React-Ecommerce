@@ -4,6 +4,8 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
 }
 html,
 body {
@@ -12,13 +14,13 @@ body {
 .mainMenu:hover .subMenu {
   display: flex;
 }
-
+.mySwiper {
+  border-radius: 7px;
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
-  background: #000;
-
+  /* background: #ecf1f4; */
   /* Center slide text vertically */
   display: flex;
   justify-content: center;
@@ -69,4 +71,12 @@ body {
 .swiper-button-next::after {
   font-size: 20px !important;
   font-weight: bold;
+}
+
+.shopItemCard:hover .shopItemButton {
+  bottom: -4rem;
+  width: 100%;
+  z-index: 999 !important;
+  box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 0.2);
+  border-color: inherit;
 }

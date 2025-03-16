@@ -1,6 +1,6 @@
 import { MdOutlineBakeryDining } from "react-icons/md";
 import { TbMeat } from "react-icons/tb";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 
 export const navitems = [
   {
@@ -285,27 +285,24 @@ export const navitems = [
 
 export const sliderSettingsMain = {
   slidesPerView: 1,
-  spaceBetween: 10,
+  spaceBetween: 0,
   loop: true,
   pagination: {
     clickable: true,
   },
-  centeredSlides: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  navigation: true,
 
-  modules: [Autoplay, Pagination, Navigation],
+  modules: [Pagination],
 };
 export const sliderSettingsJr = {
-  slidesPerView: 2,
+  slidesPerView: 1,
   breakpoints: {
-    768: {
+    455: {
       slidesPerView: 2,
     },
-    1024: {
+    860: {
+      slidesPerView: 3,
+    },
+    1150: {
       slidesPerView: 4,
     },
   },
@@ -320,8 +317,8 @@ export const BannerData = [
   {
     bannerImage:
       "https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-1.jpg",
-    bannerTitle: "Summer Sale",
-    bannerDescription: "Get ready for summer with our exclusive deals!",
+    bannerTitle: "Specialist in the grocery store",
+    bannerDescription: "Only this week. Don’t miss...",
     offer: "30",
     price: 29.99,
     redirectionUrl: "/summer-sale",
@@ -329,8 +326,8 @@ export const BannerData = [
   {
     bannerImage:
       "https://klbtheme.com/bacola/wp-content/uploads/2021/04/slider-image-2.jpg",
-    bannerTitle: "Winter Collection",
-    bannerDescription: "Explore our cozy winter collection.",
+    bannerTitle: "Feed your family the best",
+    bannerDescription: "Only this week. Don’t miss...",
     offer: "20",
     price: 49.99,
     redirectionUrl: "/winter-collection",
@@ -338,8 +335,8 @@ export const BannerData = [
   {
     bannerImage:
       "https://klbtheme.com/bacola/wp-content/uploads/2021/05/slider-3.jpg",
-    bannerTitle: "Spring Specials",
-    bannerDescription: "Fresh deals for the spring season!",
+    bannerTitle: "Grocery full of inspiration",
+    bannerDescription: "Only this week. Don’t miss...",
     offer: "15",
     price: 19.99,
     redirectionUrl: "/spring-specials",
@@ -376,7 +373,7 @@ export const product_list = [
       "https://example.com/images/apple2.jpg",
     ],
     discount: 0,
-    title: "Fresh Apples",
+    title: "Fresh Apples Fresh Apples Fresh Apples",
     isInStock: true,
     rating: 4.5,
     price: 2.99,

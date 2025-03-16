@@ -1,5 +1,5 @@
 import { Button, Flex, Text } from "@chakra-ui/react";
-import { product_list, sliderSettingsJr } from "Constants";
+import { sliderSettingsJr } from "Constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useRef } from "react";
@@ -8,13 +8,36 @@ import ShopItemCard from "Components/ShopItemCard";
 import { MdArrowRightAlt } from "react-icons/md";
 
 interface ICategorySection {
+  children?: React.ReactNode;
   onViewAll?: (category: string) => void;
+  product_list?: {
+    product_images: string[];
+    discount: number;
+    title: string;
+    isInStock: boolean;
+    rating: number;
+    price: number;
+    reviews: number;
+    item_code: string;
+    product_description: string;
+    quantity: number;
+    category: string;
+    tags: string[];
+    product_full_description: string[];
+  }[];
   category: string | React.ReactNode;
   description?: string;
   withSwipper?: boolean;
 }
 const CategorySection = (props: ICategorySection) => {
-  const { onViewAll, withSwipper, category, description } = props;
+  const {
+    onViewAll,
+    withSwipper,
+    category,
+    description,
+    product_list,
+    children,
+  } = props;
 
   const swiperRef = useRef(null);
 
@@ -63,14 +86,7 @@ const CategorySection = (props: ICategorySection) => {
         )}
       </Flex>
       {withSwipper ? (
-        <Flex
-          w={"100%"}
-          bg={"red"}
-          position={"relative"}
-          gap={".5rem"}
-          shadow={"DEFAULT"}
-          rounded={"md"}
-        >
+        <Flex position={"relative"} p={".1rem"}>
           <Flex
             w={"35px"}
             minW={"35px"}
@@ -93,22 +109,31 @@ const CategorySection = (props: ICategorySection) => {
           >
             <FaChevronLeft />
           </Flex>
-          <Swiper
-            ref={swiperRef}
-            onSlideChange={(e) => {
-              console.log(e);
-            }}
-            {...sliderSettingsJr}
-            className="mySwiper"
+          <Flex
+            w={"100%"}
+            position={"relative"}
+            gap={".5rem"}
+            shadow={"DEFAULT"}
+            overflow={"hidden"}
+            rounded={"md"}
           >
-            {product_list.map((item, idx) => {
-              return (
-                <SwiperSlide key={idx}>
-                  <ShopItemCard key={idx} product={item} />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+            <Swiper
+              ref={swiperRef}
+              onSlideChange={(e) => {
+                console.log(e);
+              }}
+              {...sliderSettingsJr}
+              className="mySwiper"
+            >
+              {product_list?.map((item, idx) => {
+                return (
+                  <SwiperSlide key={idx}>
+                    <ShopItemCard variant="static" key={idx} product={item} />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </Flex>
           <Flex
             w={"35px"}
             h={"35px"}
@@ -132,8 +157,10 @@ const CategorySection = (props: ICategorySection) => {
             <FaChevronRight />
           </Flex>
         </Flex>
+      ) : children ? (
+        <>{children}</>
       ) : (
-        <></>
+        ""
       )}
     </Flex>
   );

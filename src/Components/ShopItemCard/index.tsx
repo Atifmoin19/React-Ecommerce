@@ -1,6 +1,7 @@
-import { Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
 export interface IShopItemCards {
+  variant: "static" | "hoverable";
   product: {
     product_images: string[];
     discount: number;
@@ -18,104 +19,171 @@ export interface IShopItemCards {
   };
 }
 const ShopItemCard = (props: IShopItemCards) => {
-  const { product } = props;
+  const { product, variant = "static" } = props;
   return (
     <Flex
-      w={"100%"}
-      minH={"300px"}
-      bg={"#fff"}
       position={"relative"}
-      borderRight={"1px"}
-      p={"1rem"}
-      gap={".5rem"}
-      fontSize={"md"}
-      pt={"2rem"}
-      alignItems={"start"}
-      direction={"column"}
+      className="shopItemCard"
+      overflow={"hidden"}
+      _hover={
+        variant === "hoverable"
+          ? {
+              zIndex: 9999,
+              overflow: "visible",
+              shadow: "all",
+              borderRadius: "md",
+              borderColor: "primary.500",
+            }
+          : {}
+      }
     >
-      {product.discount > 0 && (
+      {variant === "hoverable" && (
         <Flex
-          bg={"secondary.500"}
-          color={"#fff"}
-          position={"absolute"}
-          top={"1rem"}
-          left={"1rem"}
-          p={".2rem .5rem"}
-          rounded={"sm"}
-        >
-          <Text lineHeight={"12px"} fontSize={"md"}>
-            {product.discount} %
-          </Text>
-        </Flex>
-      )}
-
-      <Image
-        w={"100%"}
-        height={"100px"}
-        bg={"red"}
-        objectFit={"contain"}
-        src={product.product_images[0]}
-      />
-      <Text fontWeight={"bold"} fontSize={"lg"} mt={"1rem"}>
-        {product.title}
-      </Text>
-      {product.isInStock ? (
-        <Text
-          textTransform={"uppercase"}
-          fontSize={"sm"}
-          fontWeight={"bold"}
-          color={"green.500"}
-        >
-          IN STock
-        </Text>
-      ) : (
-        <Text
-          textTransform={"uppercase"}
-          fontWeight={"bold"}
-          fontSize={"sm"}
-          color={"red.500"}
-        >
-          out of STock
-        </Text>
-      )}
-      <Flex>
-        {Array.from({ length: Math.floor(product.rating) }, (_, index) => (
-          <Text
-            key={index}
-            color={index < product.rating ? "yellow.400" : "gray.300"}
-          >
-            ★
-          </Text>
-        ))}
-        <Text ml={".4rem"}>{product.reviews} reviews</Text>
-      </Flex>
-
-      {product.discount ? (
-        <Flex gap={2} alignItems={"baseline"}>
-          <Text fontSize={"lg"} textDecor={"line-through"} color={"gray.400"}>
-            ${product.price}
-          </Text>
-          <Text color={"red"} fontSize={"xl"} fontWeight={"bold"}>
-            ${(product.price * (1 - product.discount / 100)).toFixed(2)}
-          </Text>
-        </Flex>
-      ) : (
-        <Flex gap={2} alignItems={"baseline"}>
-          {" "}
-          <Text color={"red"} fontSize={"xl"} fontWeight={"bold"}>
-            ${product.price}
-          </Text>
-        </Flex>
-      )}
-      <Flex w={"100%"}>
-        <Button
-          variant={"outline"}
           w={"100%"}
-          rounded={"full"}
-          colorScheme="secondary"
+          className={"shopItemButton"}
+          position={"absolute"}
+          left={0}
+          bottom={"-4rem"}
+          bg={"#fff"}
+          border={"1px"}
+          roundedBottom={"md"}
+          borderTop={"none"}
+          p={"1rem"}
         >
-          Add to cart
-        </Button>
+          <Button
+            variant={"outline"}
+            w={"100%"}
+            rounded={"full"}
+            colorScheme="secondary"
+          >
+            Add to cart
+          </Button>
+        </Flex>
+      )}
+      <Flex
+        w={"100%"}
+        bg={"#fff"}
+        border={"1px"}
+        h={"400px"}
+        position={"relative"}
+        borderColor={"inherit"}
+        p={"1rem"}
+        fontSize={"md"}
+        justifyContent={"space-between"}
+        alignItems={"start"}
+        roundedTop={"inherit"}
+        direction={"column"}
+      >
+        {product.discount > 0 && (
+          <Flex
+            bg={"secondary.500"}
+            color={"#fff"}
+            position={"absolute"}
+            top={"1rem"}
+            left={"1rem"}
+            p={".2rem .5rem"}
+            rounded={"sm"}
+          >
+            <Text lineHeight={"12px"} fontSize={"md"} userSelect={"none"}>
+              {product.discount} %
+            </Text>
+          </Flex>
+        )}
+        <Flex
+          w={"100%"}
+          h={"200px"}
+          justifyContent={"center"}
+          mx={"auto"}
+          alignItems={"center"}
+          backgroundSize={"contain"}
+          backgroundPosition={"center"}
+          backgroundRepeat={"no-repeat"}
+          backgroundImage={product.product_images[0]}
+        >
+          {/* <Image h={"100%"} draggable="false" height={"auto"} src={} /> */}
+        </Flex>
+
+        <Text
+          maxH={"60px"}
+          textAlign={"start"}
+          fontWeight={"bold"}
+          fontSize={{ lg: "lg", md: "md", sm: "md", xs: "lg" }}
+        >
+          {product.title}
+        </Text>
+        {product.isInStock ? (
+          <Text
+            textTransform={"uppercase"}
+            fontSize={"sm"}
+            fontWeight={"bold"}
+            color={"green.500"}
+          >
+            IN STock
+          </Text>
+        ) : (
+          <Text
+            textTransform={"uppercase"}
+            fontWeight={"bold"}
+            fontSize={"sm"}
+            color={"red.500"}
+          >
+            out of STock
+          </Text>
+        )}
+        <Flex>
+          {Array.from({ length: Math.floor(product.rating) }, (_, index) => (
+            <Text
+              key={index}
+              color={index < product.rating ? "yellow.400" : "gray.300"}
+            >
+              ★
+            </Text>
+          ))}
+          <Text ml={".4rem"}>{product.reviews} reviews</Text>
+        </Flex>
+        {product.discount ? (
+          <Flex
+            w={"100%"}
+            bg={"#fff"}
+            gap={2}
+            alignItems={"baseline"}
+            userSelect={"none"}
+          >
+            <Text fontSize={"lg"} textDecor={"line-through"} color={"gray.400"}>
+              ${product.price}
+            </Text>
+            <Text color={"red"} fontSize={"xl"} fontWeight={"bold"}>
+              ${(product.price * (1 - product.discount / 100)).toFixed(2)}
+            </Text>
+          </Flex>
+        ) : (
+          <Flex
+            w={"100%"}
+            bg={"#fff"}
+            gap={2}
+            alignItems={"baseline"}
+            userSelect={"none"}
+          >
+            {" "}
+            <Text color={"red"} fontSize={"xl"} fontWeight={"bold"}>
+              ${product.price}
+            </Text>
+          </Flex>
+        )}
+        {variant === "hoverable" ? (
+          ""
+        ) : (
+          <Flex w={"100%"} bg={"#fff"} p={"0 1rem"}>
+            <Button
+              variant={"outline"}
+              w={"100%"}
+              rounded={"full"}
+              colorScheme="secondary"
+            >
+              Add to cart
+            </Button>
+          </Flex>
+        )}
       </Flex>
     </Flex>
   );

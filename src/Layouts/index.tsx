@@ -40,7 +40,7 @@ const HomePageLayout = (props: IHomePageLayout) => {
         px={theme.constantPadding}
         w={"100%"}
         h={"100%"}
-        bg={"#f7f8fe"}
+        bg={"#fff"}
         {...rest}
       >
         {children}
