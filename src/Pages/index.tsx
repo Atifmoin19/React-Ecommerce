@@ -115,19 +115,17 @@ const HomePage = () => {
           >
             <Grid
               w={"100%"}
-              p={"1rem"}
-              border={"1px solid red"}
-              rounded={"md"}
               gridTemplateColumns={"repeat(4,1fr)"}
               bg={"#fff"}
+              // p={"1rem"}
+              border={".5px solid"}
+              borderColor={"gray.100"}
             >
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
-              <ShopItemCard variant="hoverable" product={product_list[0]} />
+              {product_list.map((item, key) => {
+                return (
+                  <ShopItemCard variant="hoverable" key={key} product={item} />
+                );
+              })}
             </Grid>
           </CategorySection>
         </Flex>

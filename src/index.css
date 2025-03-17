@@ -73,10 +73,10 @@ body {
   font-weight: bold;
 }
 
-.shopItemCard:hover .shopItemButton {
-  bottom: -4rem;
-  width: 100%;
-  z-index: 999 !important;
-  box-shadow: 0 10px 10px 1px rgba(0, 0, 0, 0.2);
-  border-color: inherit;
+.hoverBtn {
+  transform: translateX(100px);
+  cursor: pointer;
+}
+.shopItemCard:hover .hoverBtn {
+  transform: translateX(0px);
 }

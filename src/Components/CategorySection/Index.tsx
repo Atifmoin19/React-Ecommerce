@@ -113,9 +113,11 @@ const CategorySection = (props: ICategorySection) => {
             w={"100%"}
             position={"relative"}
             gap={".5rem"}
-            shadow={"DEFAULT"}
+            // shadow={"DEFAULT"}
             overflow={"hidden"}
             rounded={"md"}
+            border={".5px solid"}
+            borderColor={"gray.100"}
           >
             <Swiper
               ref={swiperRef}

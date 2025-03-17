@@ -1,4 +1,6 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Text } from "@chakra-ui/react";
+import { FaHeart } from "react-icons/fa";
+import { IoExpandOutline } from "react-icons/io5";
 
 export interface IShopItemCards {
   variant: "static" | "hoverable";
@@ -19,61 +21,76 @@ export interface IShopItemCards {
   };
 }
 const ShopItemCard = (props: IShopItemCards) => {
-  const { product, variant = "static" } = props;
+  const { product } = props;
   return (
-    <Flex
-      position={"relative"}
-      className="shopItemCard"
-      overflow={"hidden"}
-      _hover={
-        variant === "hoverable"
-          ? {
-              zIndex: 9999,
-              overflow: "visible",
-              shadow: "all",
-              borderRadius: "md",
-              borderColor: "primary.500",
-            }
-          : {}
-      }
-    >
-      {variant === "hoverable" && (
-        <Flex
-          w={"100%"}
-          className={"shopItemButton"}
-          position={"absolute"}
-          left={0}
-          bottom={"-4rem"}
-          bg={"#fff"}
-          border={"1px"}
-          roundedBottom={"md"}
-          borderTop={"none"}
-          p={"1rem"}
-        >
-          <Button
-            variant={"outline"}
-            w={"100%"}
-            rounded={"full"}
-            colorScheme="secondary"
-          >
-            Add to cart
-          </Button>
-        </Flex>
-      )}
+    <Flex position={"relative"} className="shopItemCard">
       <Flex
         w={"100%"}
         bg={"#fff"}
-        border={"1px"}
         h={"400px"}
         position={"relative"}
+        border={".5px solid"}
         borderColor={"inherit"}
         p={"1rem"}
         fontSize={"md"}
         justifyContent={"space-between"}
         alignItems={"start"}
         roundedTop={"inherit"}
+        overflow={"hidden"}
         direction={"column"}
       >
+        <Flex
+          position={"absolute"}
+          direction={"column"}
+          gap={2}
+          top={".5rem"}
+          right={".5rem"}
+          transform={"translate(0px,0)"}
+        >
+          <Flex
+            w={"40px"}
+            h={"40px"}
+            className="hoverBtn"
+            rounded={"full"}
+            bg={"#fff"}
+            color={"gray.500"}
+            _hover={{
+              color: "#fff",
+              bg: "primary.500",
+              transition: "0",
+            }}
+            transition={"transform .2s"}
+            transitionDelay={".11s"}
+            border={"1px solid"}
+            borderColor={"gray.200"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Icon as={IoExpandOutline} />
+          </Flex>
+          <Flex
+            w={"40px"}
+            h={"40px"}
+            rounded={"full"}
+            bg={"#fff"}
+            data-variant={1}
+            className="hoverBtn"
+            _hover={{
+              color: "#fff",
+              bg: "primary.500",
+              transition: "0",
+            }}
+            transitionDelay={".18s"}
+            transition={"transform .2s"}
+            border={"1px solid"}
+            borderColor={"gray.200"}
+            color={"gray.500"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Icon as={FaHeart} />
+          </Flex>
+        </Flex>
         {product.discount > 0 && (
           <Flex
             bg={"secondary.500"}
@@ -170,20 +187,16 @@ const ShopItemCard = (props: IShopItemCards) => {
             </Text>
           </Flex>
         )}
-        {variant === "hoverable" ? (
-          ""
-        ) : (
-          <Flex w={"100%"} bg={"#fff"} p={"0 1rem"}>
-            <Button
-              variant={"outline"}
-              w={"100%"}
-              rounded={"full"}
-              colorScheme="secondary"
-            >
-              Add to cart
-            </Button>
-          </Flex>
-        )}
+        <Flex w={"100%"} bg={"#fff"} p={"0 1rem"}>
+          <Button
+            variant={"outline"}
+            w={"100%"}
+            rounded={"full"}
+            colorScheme="secondary"
+          >
+            Add to cart
+          </Button>
+        </Flex>
       </Flex>
     </Flex>
   );

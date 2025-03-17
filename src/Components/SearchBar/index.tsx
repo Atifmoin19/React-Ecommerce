@@ -84,10 +84,13 @@ const SearchBar = (props: ISearchBar) => {
           id={id}
           onKeyDown={(e) => {
             if (e.key === "ArrowDown") {
+              e.preventDefault();
               const firstItem = document.getElementById("search-result-0");
               if (firstItem) {
                 firstItem.focus();
               }
+            } else if (e.key === "ArrowUp") {
+              e.preventDefault();
             }
           }}
           onChange={(e) => {
