@@ -3,7 +3,7 @@ import { sliderSettingsJr } from "Constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { useRef } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ShopItemCard from "Components/ShopItemCard";
 import { MdArrowRightAlt } from "react-icons/md";
 
@@ -91,7 +91,7 @@ const CategorySection = (props: ICategorySection) => {
             w={"35px"}
             minW={"35px"}
             left={0}
-            top={"50%"}
+            top={"30%"}
             transform={"translate(0,-50%)"}
             ml={"-1rem"}
             zIndex={9}
@@ -107,7 +107,7 @@ const CategorySection = (props: ICategorySection) => {
             fontSize={"16px"}
             rounded={"full"}
           >
-            <FaChevronLeft />
+            <IoIosArrowBack />
           </Flex>
           <Flex
             w={"100%"}
@@ -119,14 +119,7 @@ const CategorySection = (props: ICategorySection) => {
             border={".5px solid"}
             borderColor={"gray.100"}
           >
-            <Swiper
-              ref={swiperRef}
-              onSlideChange={(e) => {
-                console.log(e);
-              }}
-              {...sliderSettingsJr}
-              className="mySwiper"
-            >
+            <Swiper ref={swiperRef} {...sliderSettingsJr} className="mySwiper">
               {product_list?.map((item, idx) => {
                 return (
                   <SwiperSlide key={idx}>
@@ -143,11 +136,12 @@ const CategorySection = (props: ICategorySection) => {
             onClick={handleNext}
             cursor={"pointer"}
             right={0}
-            top={"50%"}
+            top={"30%"}
             transform={"translate(0,-50%)"}
             mr={"-1rem"}
             zIndex={9}
             position={"absolute"}
+            fontWeight={"thin"}
             minW={"35px"}
             bg={"#fff"}
             justifyContent={"center"}
@@ -156,7 +150,7 @@ const CategorySection = (props: ICategorySection) => {
             fontSize={"16px"}
             rounded={"full"}
           >
-            <FaChevronRight />
+            <IoIosArrowForward fontWeight={"thin"} />
           </Flex>
         </Flex>
       ) : children ? (

@@ -7,22 +7,33 @@ import SearchBar from "Components/SearchBar";
 import { useContext, useState } from "react";
 import { MyContext } from "App";
 import Navigation from "Components/Navigation";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
   const context = useContext(MyContext);
   const [productFilter, setProductFilter] = useState("");
 
   const [selectedProduct, setSelectedProduct] = useState("");
+  const navigate = useNavigate();
   console.log(selectedProduct);
   return (
     <>
       <Flex
         justifyContent={"space-between"}
         gap={"2rem"}
-        p={"2rem"}
+        p={"1.4rem 2rem"}
         alignItems={"center"}
         flexWrap={"wrap"}
       >
-        <Image src={Logo} w={"120x"} height={"50px"} objectFit={"contain"} />
+        <Image
+          cursor={"pointer"}
+          src={Logo}
+          w={"120x"}
+          height={"50px"}
+          objectFit={"contain"}
+          onClick={() => {
+            navigate("/");
+          }}
+        />
         <CountryDropDown />
         <SearchBar
           inputValue={productFilter}

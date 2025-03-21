@@ -1,6 +1,7 @@
-import { Button, Flex, Icon, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { FaHeart } from "react-icons/fa";
 import { IoExpandOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 export interface IShopItemCards {
   variant: "static" | "hoverable";
@@ -22,18 +23,29 @@ export interface IShopItemCards {
 }
 const ShopItemCard = (props: IShopItemCards) => {
   const { product } = props;
+  const navigate = useNavigate();
   return (
-    <Flex position={"relative"} className="shopItemCard">
+    <Flex
+      position={"relative"}
+      className="shopItemCard"
+      bg={"red"}
+      cursor={"pointer"}
+      onClick={() => {
+        navigate(
+          `/product/${product.category}/${product.title?.replaceAll(" ", "-")}`
+        );
+      }}
+    >
       <Flex
         w={"100%"}
         bg={"#fff"}
-        h={"400px"}
+        h={"370px"}
         position={"relative"}
         border={".5px solid"}
         borderColor={"inherit"}
-        p={"1rem"}
+        p={"0.5rem 1rem"}
         fontSize={"md"}
-        justifyContent={"space-between"}
+        // justifyContent={"space-between"}
         alignItems={"start"}
         roundedTop={"inherit"}
         overflow={"hidden"}
@@ -108,22 +120,26 @@ const ShopItemCard = (props: IShopItemCards) => {
         )}
         <Flex
           w={"100%"}
-          h={"200px"}
+          h={"160px"}
+          p={"1rem"}
           justifyContent={"center"}
           mx={"auto"}
+          mb={"auto"}
           alignItems={"center"}
           backgroundSize={"contain"}
           backgroundPosition={"center"}
           backgroundRepeat={"no-repeat"}
-          backgroundImage={product.product_images[0]}
+          // backgroundImage={product.product_images[0]}
         >
-          {/* <Image h={"100%"} draggable="false" height={"auto"} src={} /> */}
+          <Image draggable="false" src={product.product_images[0]} />
         </Flex>
 
         <Text
           maxH={"60px"}
+          mb={"auto"}
+          objectFit={"contain"}
           textAlign={"start"}
-          fontWeight={"bold"}
+          fontWeight={"500"}
           fontSize={{ lg: "lg", md: "md", sm: "md", xs: "lg" }}
         >
           {product.title}
@@ -187,7 +203,7 @@ const ShopItemCard = (props: IShopItemCards) => {
             </Text>
           </Flex>
         )}
-        <Flex w={"100%"} bg={"#fff"} p={"0 1rem"}>
+        <Flex w={"100%"} bg={"#fff"} p={"0.4rem 1rem"} mt={".5rem"}>
           <Button
             variant={"outline"}
             w={"100%"}

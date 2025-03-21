@@ -92,7 +92,7 @@ export const theme = extendTheme({
     good: "rgba(0, 0, 0, 0.3) -5px 10px 20px 10px;",
     none: "none",
   },
-  constantPadding: { lg: "4rem", md: "1rem", sm: "1rem", xs: "1rem" },
+  constantPadding: { lg: "8rem", md: "1rem", sm: "1rem", xs: "1rem" },
   breakpoints: {
     xs: "300px",
     sm: "576px",

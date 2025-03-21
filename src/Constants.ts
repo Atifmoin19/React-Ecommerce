@@ -1,6 +1,6 @@
 import { MdOutlineBakeryDining } from "react-icons/md";
 import { TbMeat } from "react-icons/tb";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 export const navitems = [
   {
@@ -290,8 +290,8 @@ export const sliderSettingsMain = {
   pagination: {
     clickable: true,
   },
-
-  modules: [Pagination],
+  autoplay: true,
+  modules: [Pagination, Autoplay],
 };
 export const sliderSettingsJr = {
   slidesPerView: 1,
@@ -373,7 +373,7 @@ export const product_list = [
       "https://example.com/images/apple2.jpg",
     ],
     discount: 0,
-    title: "Fresh Apples Fresh Apples Fresh Apples",
+    title: "Fresh Apples",
     isInStock: true,
     rating: 4.5,
     price: 2.99,

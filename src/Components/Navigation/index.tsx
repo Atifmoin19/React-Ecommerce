@@ -17,6 +17,7 @@ const Navigation = () => {
         cursor={"pointer"}
         rounded={"full"}
         w={"20%"}
+        h={"min-content"}
         minW={"200px"}
         alignItems={"center"}
         color={"#fff"}
