@@ -14,7 +14,7 @@ const BreadCrumbs = (props: any) => {
         </Button>
         <Icon color={"gray.400"} as={IoIosArrowForward} />
       </Flex>
-      {stack.map((item, idx) => {
+      {stack.map((item: any, idx: any) => {
         return (
           <Flex gap={1} alignItems={"center"}>
             <Button variant={"link"}>

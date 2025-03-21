@@ -1,15 +1,10 @@
-import { Box, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
 import HomePage from "Pages";
 import Product from "Pages/Products";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
 function AppRouter() {
-  const [number, setNumber] = useState(4);
-  const currStack = window.location.pathname
-    .split("/")
-    .filter((item) => item && item !== "React-Ecommerce" && item !== "product");
-
   return (
     <Suspense
       fallback={

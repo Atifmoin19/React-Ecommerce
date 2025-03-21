@@ -1,9 +1,9 @@
 import { Flex, Image, Text } from "@chakra-ui/react";
 import BreadCrumbs from "Components/BreadCrumbs";
-import { product_list } from "Constants";
+
 import { getProductData } from "general";
 import HomePageLayout from "Layouts";
-import React, { useEffect } from "react";
+
 import { useParams } from "react-router-dom";
 
 const Product = () => {
