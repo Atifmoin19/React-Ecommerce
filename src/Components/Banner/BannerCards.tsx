@@ -26,7 +26,6 @@ export const BannerSections = (props: IBannerSections) => {
           sm: "2rem",
           xs: "1.5rem",
         }}
-        rounded={"md"}
         fontSize={{ lg: "1.2rem", md: "1rem", sm: ".8rem", xs: ".8rem" }}
         height={{ lg: "25rem", md: "20rem", sm: "14rem", xs: "14rem" }}
       >
